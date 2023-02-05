@@ -1,0 +1,19 @@
+.head{
+    background-color: orange;
+    height: 90px;
+    width: 100vw;
+    padding: 5px 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    vertical-align: middle;
+}
+img{
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+}
+.user > h5 {
+display: inline;
+
+}

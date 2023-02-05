@@ -1,0 +1,26 @@
+.summary{
+    display: flex;
+    flex-direction: row;
+    padding: 10px 30px;
+}
+
+.search > input{
+    background-color: #fff;
+    border-radius: 5px;
+    width: 500px;
+    border: none;
+    padding: 10px 0;
+    margin-left: 15px;
+
+}
+
+.search > input:focus{
+    border: none !important;
+}
+
+.total{
+    padding: 10px 0;
+    text-decoration: underline;
+    font-size: 20px;
+    font-weight: bold;
+}
