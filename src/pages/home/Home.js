@@ -6,11 +6,14 @@ import './Home.css';
 import { useEffect } from 'react';
 import userApi from '../../common/api/api';
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 function Home() {
     const [myUsers, setmyUsers] = useState([]);
     const [albums, setAlbums] = useState([])
-    const [album_count, setAlbumCount] =useState(0)
+    const [album_count, setAlbumCount] =useState(0);
+    const navigate = useNavigate()
+
     
 
    
@@ -20,7 +23,7 @@ function Home() {
         .get("users")
         .then((response) => {
           setmyUsers(response.data);
-          console.log(response);
+          
         })
         .catch((err) => {
           console.log(err);
@@ -31,7 +34,7 @@ function Home() {
         .get("albums")
         .then((response) => {
           setAlbums(response.data);
-          console.log(response);
+          
         })
         .catch((err) => {
           console.log(err);
@@ -39,6 +42,10 @@ function Home() {
 
       
     })
+    // const gotoUserInfo = (id) => {
+    //     navigate.apply(`/user-details/${id}`);
+
+    // }
 
     const renderUsers  = myUsers.map((user) => {
          const albuNo =  myUsers.map((user) => {
@@ -46,12 +53,16 @@ function Home() {
               (album) => album.userId === user.id
             );
           });
+
+      
+
+
         return (
           <div className="row bg-white tb-body">
             <div className="col text-center">{user.name}</div>
             <div className="col text-center">{albuNo.length} Albums</div>
             <div className="col text-center">
-              <button className="btn btn-outline-secondary ronded">
+              <button className="btn btn-outline-secondary rounded">
                 View User
                 <span>
                   <FaAngleRight />
@@ -60,7 +71,10 @@ function Home() {
             </div>
           </div>
         );
-    })
+    },[]
+    
+
+    )
 
   return (
     <div>

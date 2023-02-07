@@ -1,6 +1,7 @@
 import React from "react";
 import lady from "../../assets/lady.jpg";
 import './Landing.css';
+
 import { GoogleLogin, GoogleLogout } from "react-google-login"; 
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
@@ -11,10 +12,10 @@ function Landing() {
      const navigate = useNavigate();
 
      const responseGoogle = (response) => {
-    //    setIsLoggedIn(true);
-    //    setUserData(response.profileObj);
-    //    localStorage.setItem("userData", JSON.stringify(response.profileObj));
-       navigate.push("/home");
+       setIsLoggedIn(true);
+       setUserData(response.profileObj);
+       localStorage.setItem("userData", JSON.stringify(response.profileObj));
+       navigate.push("/Home");
      };
   return (
     <div className="page">
@@ -25,7 +26,7 @@ function Landing() {
           <div>
             <GoogleLogin
               className="google-login mt-4"
-              clientId="YOUR_GOOGLE_CLIENT_ID"
+              clientId="1090098695165-c5gf0qs3005253puoetgve2d9esdhfnu.apps.googleusercontent.com"
               buttonText="Login with Google"
               onSuccess={responseGoogle}
               onFailure={(response) => console.log(response)}
