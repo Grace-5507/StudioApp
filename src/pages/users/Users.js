@@ -49,7 +49,10 @@ function Users() {
              <div className="col text-center">{user.website}</div>
              <button
                onClick={handleClick}
-               className="btn btn-outline-secondary rounded"
+               className="btn btn-outline-warning rounded"
+               
+               
+               
              >
                {navigate}
                View Albums

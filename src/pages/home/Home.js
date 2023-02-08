@@ -69,7 +69,7 @@ function Home() {
             <div className="col text-center">{albuNo.length} Albums</div>
             <div className="col text-center">
               <button onClick={handleClick}
-                className="btn btn-outline-secondary rounded">{navigate}
+                className="btn btn-outline-info rounded">{navigate}
                 View User
                 <span>
                   <FaAngleRight />
