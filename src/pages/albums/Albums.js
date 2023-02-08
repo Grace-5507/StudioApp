@@ -1,65 +1,63 @@
 import React, { useState, useEffect } from "react";
 import userApi from "../../common/api/api";
+import Header from "../../components/header/Header";
 
 
 
 
-const Albums = (props) => {
-  const [myAlbums, setmyAlbums] = useState({});
-  const [myPhotos, setmyPhotos] = useState([]);
+const Albums = ({ match }) => {
+  
+  const [album, setAlbum] = useState({});
+  const [photos, setPhotos] = useState([]);
 
   useEffect(() => {
-      //Fetching users on page load
-      userApi
-        .get("albums")
-        .then((response) => {
-          setmyAlbums(response.data);
-          
-        })
-        .catch((err) => {
-          console.log(err);
-        });
+    if (!match) return;
+    const fetchAlbum = async () => {
+      const res = await userApi.get(
+        `albums/${match.params.id}`
+      );
+      setAlbum(res.data);
+    };
 
-      //Fetching albums on page load
-      userApi
-        .get("photos")
-        .then((response) => {
-          setmyPhotos(response.data);
-          
-        })
-        .catch((err) => {
-          console.log(err);
-        });
-      })
+    const fetchPhotos = async () => {
+      const res = await userApi.get(
+        `photos?albumId=${match.params.id}`
+      );
+      setPhotos(res.data);
+    };
 
+    fetchAlbum();
+    fetchPhotos();
+  }, [match]);
 
-const renderAlbums  = myAlbums.map((album) => {
-         const myPhotos =  myPhotos.map((photo) => {
-            return album.filter(
-              (photo) => album.title === album.id
-            );
-          });
-        })
   return (
-    <div class="album-container">
-    
-      <div class="album-card">
-        <img src="album1.jpg" alt="Album 1" />
-        <h3>Album: {myAlbums.title}</h3>
-       <ul>
-        {myPhotos.map((photo) => (
-          <li key={photo.id}>
-            <a href={`/photos/${photo.id}`}>{photo.title}</a>
-          </li>
-        ))}
-      </ul>
-       </div>
+    <div>
+      {match ? (
+        <>
+          <h1>Album Information</h1>
+          <p>User ID: {album.userId}</p>
+          <p>ID: {album.id}</p>
+          <p>Title: {album.title}</p>
+          <hr />
+          <h2>Photos</h2>
+          <ul>
+            {photos.map((photo) => (
+              <li key={photo.id}>
+                <img src={photo.thumbnailUrl} alt={photo.title} />
+                <p>{photo.title}</p>
+              </li>
+            ))}
+          </ul>
+        </>
+      ) : (
+        <div>
+          <Header />
+          <h1>Albums page Loading...</h1>
+        </div>
+      )}
     </div>
-       
-
-  
   );
-}
-      
+};
+
 
 export default Albums;

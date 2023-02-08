@@ -1,17 +1,15 @@
-.bg {
-    background-color: #eeeeee;
-
+.bg{
+   background-color: #eeeeee; 
+   
 }
-
-.tb-header {
+.tb-header{
     margin: 20px 30px 10px;
     height: 60px;
     border-radius: 10px;
     font-weight: bold;
     padding: 15px 0;
 }
-
-.tb-body {
+.tb-body{
     margin: 20px 30px 10px;
     height: 65px;
     border-radius: 10px;
