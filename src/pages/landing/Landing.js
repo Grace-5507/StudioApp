@@ -23,6 +23,11 @@ function Landing() {
         navigate("/Home");
     
      };
+     const logout = () => {
+       setIsLoggedIn(false);
+       localStorage.removeItem("userData");
+       navigate.push("/");
+     };
   return (
     <div className="page">
       <div className="d-flex justify-content-center align-self-center">
@@ -32,9 +37,9 @@ function Landing() {
           <div>
             <GoogleLogin
               className="google-login mt-4"
-              clientId="1090098695165-c5gf0qs3005253puoetgve2d9esdhfnu.apps.googleusercontent.com"
-              buttonText="Login with Google"
-              onSuccess={responseGoogle}
+              clientId="1090098695165-c5gf0qs3005253puoetgve2d9esdhfnu"
+              buttonText="Login with Google"navigate
+              onSuccess={{handleClick}}
               onFailure={(response) => console.log(response)}
               cookiePolicy={"single_host_origin"}
               onClick={handleClick}></GoogleLogin>

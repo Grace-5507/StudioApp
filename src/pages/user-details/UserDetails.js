@@ -1,9 +1,15 @@
-import React from 'react'
+import React from "react";
+import { Link } from "react-router-dom";
 
-function UserDetails() {
-  return (
-    <div>UserDetails</div>
-  )
-}
 
-export default UserDetails
+const UserDetails = ({ users }) => (
+  <lu>
+    {users.map((user) => (
+      <li key={user.id}>
+        <Link to={`/user/${user.id}`}>{user.name}</Link>
+      </li>
+    ))}
+  </lu>
+);
+
+export default UserDetails;
