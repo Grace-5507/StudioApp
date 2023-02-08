@@ -68,7 +68,10 @@ const Albums = ({ match }) => {
         <div>
           <Header />
           <h1>Albums Information Loading...</h1>
-          <button type="button" onClick={handleClick}>
+          <button
+            className="btn btn-outline-info rounded"
+            onClick={handleClick}
+          >
             see user photos
           </button>
         </div>
