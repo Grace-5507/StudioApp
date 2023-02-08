@@ -1,11 +1,18 @@
-import React from 'react'
+import React from "react";
+import { useHistory } from "react-router-dom";
 
-function Button() {
+function ButtonPage() {
+  let history = useHistory();
+
+  const handleClick = () => {
+    history.push("/new-page");
+  };
+
   return (
     <div>
-        <button></button>
+      <button onClick={handleClick}>Go to New Page</button>
     </div>
-  )
+  );
 }
 
-export default Button
+export default ButtonPage;

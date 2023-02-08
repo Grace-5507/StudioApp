@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import userApi from "../../common/api/api";
 import Header from "../../components/header/Header";
+import { useNavigate } from 'react-router-dom';
 
 
 
@@ -9,19 +10,33 @@ const Albums = ({ match }) => {
   
   const [album, setAlbum] = useState({});
   const [photos, setPhotos] = useState([]);
+  const navigate = useNavigate();
+    const history = useNavigate();
+
+    const handleClick = () => {
+      navigate("/photos");
+   };
+
+
+
+
+ 
+
+
+
 
   useEffect(() => {
     if (!match) return;
     const fetchAlbum = async () => {
       const res = await userApi.get(
-        `albums/${match.params.id}`
+        `album`
       );
       setAlbum(res.data);
     };
 
     const fetchPhotos = async () => {
       const res = await userApi.get(
-        `photos?albumId=${match.params.id}`
+        `photos?albumId`
       );
       setPhotos(res.data);
     };
@@ -52,7 +67,10 @@ const Albums = ({ match }) => {
       ) : (
         <div>
           <Header />
-          <h1>Albums page Loading...</h1>
+          <h1>Albums Information Loading...</h1>
+          <button type="button" onClick={handleClick}>
+            see user photos
+          </button>
         </div>
       )}
     </div>

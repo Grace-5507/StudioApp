@@ -9,13 +9,19 @@ import { useNavigate } from "react-router-dom";
 function Landing() {
      const [isLoggedIn, setIsLoggedIn] = useState(false);
      const [userData, setUserData] = useState({});
-     const navigate = useNavigate();
+    const navigate = useNavigate();
+      const history = useNavigate();
+
+      const handleClick = () => {
+        navigate("/Home");
+      };
 
      const responseGoogle = (response) => {
        setIsLoggedIn(true);
        setUserData(response.profileObj);
        localStorage.setItem("userData", JSON.stringify(response.profileObj));
-       navigate.push("/Home");
+        navigate("/Home");
+    
      };
   return (
     <div className="page">
@@ -31,7 +37,8 @@ function Landing() {
               onSuccess={responseGoogle}
               onFailure={(response) => console.log(response)}
               cookiePolicy={"single_host_origin"}
-            />
+              onClick={handleClick}></GoogleLogin>
+            
           </div>
         </div>
       </div>

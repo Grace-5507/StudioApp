@@ -46,20 +46,34 @@ const Photos = () => {
   return (
     <div>
       <Header />
-    <div className="bg" />
-      <h1> User Photos</h1>
-      <ul>
-        {photos.map((photo) => (
-          <li key={photo.id}>
-            <img src={photo.thumbnailUrl} alt={photo.title} />
-            <input
-              type="text"
-              value={photo.title}
-              onChange={(e) => handleEditTitle(photo.id, e.target.value)}
-            />
-          </li>
-        ))}
-      </ul>
+      <div className="bg" />
+      <div class="container">
+        <div class="row">
+          <div class="col-md-4">
+            <h1> User Photos</h1>
+            <ul>
+              {photos.map((photo) => (
+                <li key={photo.id}>
+                  <li key={photo.image_url}>
+                    <img
+                      src={photo.thumbnailUrl}
+                      alt={photo.title}
+                      class="img-fluid"
+                    />
+                    <input
+                      type="text"
+                      value={photo.title}
+                      onChange={(e) =>
+                        handleEditTitle(photo.id, e.target.value)
+                      }
+                    />
+                  </li>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </div>
     </div>
   );
   
