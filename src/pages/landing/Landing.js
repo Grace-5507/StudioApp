@@ -9,7 +9,7 @@ import { useNavigate } from "react-router-dom";
 function Landing() {
      const [isLoggedIn, setIsLoggedIn] = useState(false);
      const [userData, setUserData] = useState({});
-    const navigate = useNavigate();
+     const navigate = useNavigate();
       const history = useNavigate();
 
       const handleClick = () => {
@@ -38,12 +38,14 @@ function Landing() {
             <GoogleLogin
               className="google-login mt-4"
               clientId="1090098695165-c5gf0qs3005253puoetgve2d9esdhfnu"
-              buttonText="Login with Google"navigate
-              onSuccess={{handleClick}}
+              buttonText="Login with Google"
+              navigate
+              onSuccess={{ handleClick }}
               onFailure={(response) => console.log(response)}
               cookiePolicy={"single_host_origin"}
-              onClick={handleClick}></GoogleLogin>
-            
+              onClick={handleClick}
+              isSignedIn={true}
+            ></GoogleLogin>
           </div>
         </div>
       </div>
