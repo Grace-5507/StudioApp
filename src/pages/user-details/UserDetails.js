@@ -4,7 +4,7 @@ import { useParams } from "react-router-dom";
 import { useEffect } from "react";
 import "./UserDetails.css";
 import Header from "../../components/header/Header";
-import Photo from "../../assets/avtar.png";
+import Photo from "../../assets/avtar.jpg";
 import userApi from "../../common/api/api";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";

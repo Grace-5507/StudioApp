@@ -53,7 +53,7 @@ const Photos = () => {
                     onChange={(e) => handleEditTitle(photo.id, e.target.value)}
                   />
                   <Button
-                    variant="success"
+                    variant="warning"
                     size="lg"
                     className="mt-2"
                     onClick={() => setSelectedPhoto(photo)}
