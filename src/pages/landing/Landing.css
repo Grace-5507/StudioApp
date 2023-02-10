@@ -1,11 +1,11 @@
-.page{
+.page {
     height: 100vh;
     background: url('../../assets/lady.jpg');
     background-size: cover;
     opacity: 0.5;
 }
 
-.middle{
+.middle {
     vertical-align: middle;
     margin-top: 40vh;
     /* -ms-transform: translateY(-50%);
@@ -13,22 +13,23 @@
 
 }
 
-.middle > h2{
+.middle>h2 {
     font-size: 4em;
     font-weight: bold;
     color: aliceblue;
     cursor: pointer;
 }
 
-.middle > h2:hover{
+.middle>h2:hover {
     color: darkorange;
     transform: scale(1.2);
 }
 
-.middle > h3{
-    color:blanchedalmond;
+.middle>h3 {
+    color: blanchedalmond;
 }
-.google-login{
+
+.google-login {
     border-radius: 4px !important;
-    
+
 }

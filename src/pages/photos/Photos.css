@@ -1,4 +1,4 @@
-h1{
+h1 {
     font-size: 40px;
 }
 
@@ -7,11 +7,11 @@ li {
     display: flex;
     align-items: center;
     margin-bottom: 20px;
-   
-   
+
+
 }
 
-button{
+button {
     padding-left: 50%;
 }
 
