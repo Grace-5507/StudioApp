@@ -3,7 +3,6 @@ import React from "react";
 import lady from "../../assets/lady.jpg";
 import "./Landing.css";
 
-import { GoogleLogin, GoogleLogout } from "react-google-login";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
