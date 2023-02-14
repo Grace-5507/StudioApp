@@ -33,7 +33,7 @@ useEffect(() => {
 
   fetchAlbum();
   fetchPhotos();
-}, [match.params.id, albums]);
+}, [match.params.id, album]);
 
 
   return (
