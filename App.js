@@ -1,11 +1,11 @@
 import React from "react";
-import Landing from "./pages/landing/Landing";
+import Landing from "./src/pages/landing/Landing";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import Users from "./pages/users/Users";
-import Photos from "./pages/photos/Photos";
-import AlbumDetails from "./pages/album-details/AlbumDetails";
-import Home from "./pages/home/Home";
-import UserDetails from "./pages/user-details/UserDetails";
+import Users from "./src/pages/users/Users";
+import Photos from "./src/pages/photos/Photos";
+import AlbumDetails from "./src/pages/album-details/AlbumDetails";
+import Home from "./src/pages/home/Home";
+import UserDetails from "./src/pages/user-details/UserDetails";
 
 function App() {
   return (
