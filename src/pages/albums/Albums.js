@@ -19,32 +19,22 @@ const Albums = ({ match }) => {
    };
 
 
+useEffect(() => {
+  if (!match) return;
+  const fetchAlbum = async () => {
+    const res = await userApi.get(`albums/${match.params.id}`);
+    setAlbum(res.data);
+  };
 
+  const fetchPhotos = async () => {
+    const res = await userApi.get(`photos?albumId=${match.params.id}`);
+    setPhotos(res.data);
+  };
 
- 
+  fetchAlbum();
+  fetchPhotos();
+}, [match.params.id, albums]);
 
-
-
-
-  useEffect(() => {
-    if (!match) return;
-    const fetchAlbum = async () => {
-      const res = await userApi.get(
-        `albums/${match.params.id}`
-      );
-      setAlbum(res.data);
-    };
-
-    const fetchPhotos = async () => {
-      const res = await userApi.get(
-        `photos?albumId=${match.params.id}`
-      );
-      setPhotos(res.data);
-    };
-
-    fetchAlbum();
-    fetchPhotos();
-  }, [match]);
 
   return (
     <div>
