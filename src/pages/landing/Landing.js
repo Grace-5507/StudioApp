@@ -1,6 +1,6 @@
 //* eslint-disable no-undef */
 import React from "react";
-import lady from "../../assets/lady.jpg";
+import photo from "../../assets/lady.jpg";
 import './Landing.css';
 
  
@@ -21,7 +21,7 @@ function Landing() {
         sessionStorage.setItem('userObj',JSON.stringify(jwtDecode(userObj)));
         navigate('/home')
       }
-
+      const google = window.google;
       useEffect(() => {
         //Global Google
         // eslint-disable-next-line no-undef
